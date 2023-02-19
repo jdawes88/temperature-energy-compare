@@ -12,17 +12,17 @@ interface Params {
   energyRepository: EnergyRepository
 }
 
-export const getEnergyService = ({energyRepository}: Params): EnergyService => ({
+export const getEnergyService = ({ energyRepository }: Params): EnergyService => ({
   getEnergyData: async () => {
     try {
       const allData = await energyRepository.getAll();
       const anomalyData = await energyRepository.getAllAnomalies();
       const anomalyTimeStamps = {} as any;
       anomalyData.forEach(energyData => {
-        anomalyTimeStamps[energyData.Timestamp] = energyData.Timestamp
+        anomalyTimeStamps[`${energyData.Timestamp}`] = energyData.Timestamp
       })
       const mergedData = allData.map(energyData => {
-        if (anomalyTimeStamps[energyData.Timestamp]) {
+        if (anomalyTimeStamps[`${energyData.Timestamp}`]) {
           return {
             ...energyData,
             anomaly: true

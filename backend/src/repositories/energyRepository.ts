@@ -2,7 +2,7 @@ import csvtojson from "csvtojson";
 import path from "path";
 
 export interface Energy {
-  Timestamp: string,
+  Timestamp: Date,
   Consumption: number
 }
 
@@ -27,6 +27,7 @@ export const getEnergyRepository = (): EnergyRepository => ({
       const mappedData = data.map(energy => {
         return {
           ...energy,
+          Timestamp: new Date(energy.Timestamp),
           Consumption: parseFloat(energy.Consumption)
         };
       })
@@ -45,6 +46,7 @@ export const getEnergyRepository = (): EnergyRepository => ({
       const mappedData = data.map(energy => {
         return {
           ...energy,
+          Timestamp: new Date(energy.Timestamp),
           Consumption: parseFloat(energy.Consumption)
         };
       })
