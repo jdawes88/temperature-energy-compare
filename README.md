@@ -26,7 +26,7 @@ The easiest way to run the application is to use the provided docker-compose fil
    - `cd backend` 
    - `npm install`
    - `npm run start:dev`
-- This will run the server on `http://localhost:8080` and you will be able to hit the `/tempsAndEnergy` enpoint to retrieve the relevant data
+- This will run the server on `http://localhost:8080` and you will be able to hit the `/tempsAndEnergy` endpoint to retrieve the relevant data
 
 #### Frontend
 

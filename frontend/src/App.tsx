@@ -86,29 +86,23 @@ const App = () => {
                 y: energy.Consumption,
                 marker: {
                   enabled: energy.anomaly,
-                  fillColor: 'red'
+                  fillColor: 'red',
                 },
                 dataLabels: {
-                  enabled: energy.anomaly
+                  enabled: energy.anomaly,
                 }
-              }
-            })
-          },
-          {
-            yAxis: 1,
-            name: 'Humidity',
-            type: 'line',
-            data: data?.temperatureData.map(
-              (temperature) => temperature.AverageHumidity
-            ),
+              };
+            }),
           },
           {
             yAxis: 1,
             name: 'Temperature',
             type: 'line',
-            data: data?.temperatureData.map(
-              (temperature) => temperature.AverageTemperature
-            ),
+            data: data?.temperatureData.map((temperature) => {
+              return {
+                y: temperature.AverageTemperature
+              };
+            }),
           },
         ],
       });
